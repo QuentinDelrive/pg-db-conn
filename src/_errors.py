@@ -1,0 +1,2 @@
+class ConnectionNotInitialized(Exception):
+    pass
