@@ -80,7 +80,7 @@ class DBConnection:
         query: Composable = base_query.value.format(
             table=table,
             cols=SQL(cols_str),
-            binar=sql.SQL(copy_format),
+            binar=sql.SQL(copy_format.value),
             with_statement=with_statement,
         )
         with self.cursor() as cur:
