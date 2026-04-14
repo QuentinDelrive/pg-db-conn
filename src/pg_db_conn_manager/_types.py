@@ -21,5 +21,5 @@ class OptionsCopy(TypedDict, total=False):
 
 
 class CopyDir(Enum):
-    FROM = SQL(r"copy {table} {cols} from STDIN {with_statement};")
-    TO = SQL(r"copy {table} {cols} to STDOUT {with_statement};")
+    FROMSTDIN = SQL(r"copy {table} {cols} from STDIN {with_statement};")
+    TOSTDIN = SQL(r"copy {table} {cols} to STDOUT {with_statement};")
