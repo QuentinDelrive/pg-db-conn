@@ -47,7 +47,7 @@ class DBConnection:
         base_query: CopyDir,
         target: str,
         cols: list[str] = [],
-        copy_format: FormatCopyVal = FormatCopyVal.NONE,
+        copy_format: FormatCopyVal = FormatCopyVal.BIN,
         options: Optional[OptionsCopy] = None,
     ):
         if not self._conn_setup:
@@ -76,7 +76,7 @@ class DBConnection:
             parts.append(copy_format.value)
 
             with_statement = SQL(" WITH ({}").format(SQL(", ").join(parts)) + SQL(")")
-        elif copy_format.value is not None:
+        elif copy_format != FormatCopyVal.NONE:
             with_statement = SQL(" WITH {}").format(copy_format.value)
         else:
             with_statement = SQL("")
