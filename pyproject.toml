@@ -7,3 +7,9 @@ requires-python = ">=3.13"
 dependencies = [
     "psycopg[binary]>=3.3.3",
 ]
+
+[tool.pyrefly]
+project-excludes = [".venv/**"]
+search-path = ["."]
+python-interpreter = ".venv/Scripts/python.exe"
+site-package-path = ".venv/lib/site-packages"
