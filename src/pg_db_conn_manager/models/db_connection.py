@@ -74,11 +74,12 @@ class DBConnection:
                 parts.append(sql.SQL(f"{k} %s"))  # type: ignore
                 params.append(v)
 
-            with_statement = SQL(" WITH ({}{form}").format(
-                SQL(", ").join(parts), form=copy_format.value
-            ) + SQL(")")
+            with_statement = SQL(" WITH ({}").format(SQL(", ").join(parts))
+            if copy_format != FormatCopyVal.NONE:
+                with_statement += SQL(f", {copy_format.value}")
+            with_statement += SQL(")")
         elif copy_format != FormatCopyVal.NONE:
-            with_statement = SQL(f" WITH {copy_format.value}")
+            with_statement = SQL(f" WITH ({copy_format.value})")
         else:
             with_statement = SQL("")
 

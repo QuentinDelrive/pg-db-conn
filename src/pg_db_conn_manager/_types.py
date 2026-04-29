@@ -5,8 +5,8 @@ from psycopg.sql import SQL
 
 
 class FormatCopyVal(Enum):
-    BIN = "(FORMAT BINARY) "
-    CSV = "(FORMAT CSV) "
+    BIN = "FORMAT BINARY "
+    CSV = "FORMAT CSV "
     NONE = ""
 
 
