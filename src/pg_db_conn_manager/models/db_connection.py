@@ -80,7 +80,7 @@ class DBConnection:
                 + SQL(")")
             )
         elif copy_format != FormatCopyVal.NONE:
-            with_statement = SQL(" WITH {}").format(copy_format.value)
+            with_statement = SQL(f" WITH {copy_format.value}")
         else:
             with_statement = SQL("")
 
