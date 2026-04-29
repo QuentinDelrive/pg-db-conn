@@ -5,13 +5,12 @@ from psycopg.sql import SQL
 
 
 class FormatCopyVal(Enum):
-    BIN = "(FORMAT BINARY)"
-    CSV = "(FORMAT CSV)"
+    BIN = "(FORMAT BINARY) "
+    CSV = "(FORMAT CSV) "
     NONE = ""
 
 
 class OptionsCopy(TypedDict, total=False):
-    format: Literal["csv", "text", "binary", ""]
     delimiter: str
     header: bool
     quote: str
@@ -21,5 +20,5 @@ class OptionsCopy(TypedDict, total=False):
 
 
 class CopyDir(Enum):
-    FROMSTDIN = SQL(r"copy {table} {cols} from STDIN {with_statement};")
-    TOSTDIN = SQL(r"copy {table} {cols} to STDOUT {with_statement};")
+    FROMSTDIN = SQL(r"copy {table} {cols} from STDIN {binar}{with_statement};")
+    TOSTDIN = SQL(r"copy {table} {cols} to STDOUT {binar}{with_statement};")
