@@ -67,13 +67,17 @@ class DBConnection:
             table = sql.Identifier(*table_parts)
 
         params = []
+
         if options:
             parts = []
             for k, v in options.items():
                 parts.append(sql.SQL(f"{k} %s"))  # type: ignore
                 params.append(v)
+            parts.append(copy_format.value)
 
             with_statement = SQL(" WITH ({}").format(SQL(", ").join(parts)) + SQL(")")
+        elif copy_format.value is not None:
+            with_statement = SQL(" WITH {}").format(copy_format.value)
         else:
             with_statement = SQL("")
 
