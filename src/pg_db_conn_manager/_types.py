@@ -22,3 +22,12 @@ class OptionsCopy(TypedDict, total=False):
 class CopyDir(Enum):
     FROMSTDIN = SQL(r"copy {table} {cols} from STDIN {with_statement};")
     TOSTDIN = SQL(r"copy {table} {cols} to STDOUT {with_statement};")
+
+
+class ConnectionConfig(TypedDict, total=False):
+    host: str
+    password: str
+    user: str
+    database: str
+    port: int | str
+    sslmode: str

@@ -1,6 +1,6 @@
 [project]
 name = "pg-db-conn-manager"
-version = "0.2.2"
+version = "0.2.3"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -12,4 +12,4 @@ dependencies = [
 project-excludes = [".venv/**"]
 search-path = ["."]
 python-interpreter = ".venv/Scripts/python.exe"
-site-package-path = ".venv/lib/site-packages"
+site-package-path = [".venv/lib/site-packages"]
