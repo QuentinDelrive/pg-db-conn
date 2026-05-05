@@ -7,6 +7,19 @@ requires-python = ">=3.11"
 dependencies = [
     "psycopg[binary]>=3.3.3",
 ]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+authors = [
+    {name = "QuentinDELRIVE", email = "quentindelrive@gmail.com"}
+]
+
+[project.urls]
+Homepage = "https://github.com/QuentinDelrive/pg-db-conn"
+Issues = "https://github.com/QuentinDelrive/pg-db-conn/issues"
 
 [tool.pyrefly]
 project-excludes = [".venv/**"]
